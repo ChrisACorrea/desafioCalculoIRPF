@@ -11,11 +11,11 @@ public class Inss {
 
     public Inss(double salario) {
         this.salario = salario;
-        setAliquota();
-        calculaImposto();
+        calculaAliquota();
+        calculaImpostoINSS();
     }
 
-    private void setAliquota() {
+    private void calculaAliquota() {
         if (this.salario <= this.SALARIO_FAIXA_1) {
             this.aliquota = 0.08;
         } else if (this.salario <= this.SALARIO_FAIXA_2) {
@@ -25,7 +25,7 @@ public class Inss {
         }
     }
 
-    private void calculaImposto() {
+    private void calculaImpostoINSS() {
         if (this.salario <= this.SALARIO_FAIXA_3) {
             this.impostoINSS = this.salario * this.aliquota;
         } else {
