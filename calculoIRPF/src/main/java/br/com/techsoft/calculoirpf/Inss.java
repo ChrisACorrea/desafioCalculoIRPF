@@ -4,14 +4,15 @@ public class Inss {
     private final double SALARIO_FAIXA_1 = 1751.81;
     private final double SALARIO_FAIXA_2 = 2919.72;
     private final double SALARIO_FAIXA_3 = 5839.45;
-    private final double DESCONTO_MAXIMO = this.SALARIO_FAIXA_3 * this.aliquota;
     private final double salario;
+    private double descontoMaximo;
     private double aliquota;
     private double impostoINSS;
 
     public Inss(double salario) {
         this.salario = salario;
         calculaAliquota();
+        this.descontoMaximo = this.SALARIO_FAIXA_3 * this.aliquota;
         calculaImpostoINSS();
     }
 
@@ -29,7 +30,7 @@ public class Inss {
         if (this.salario <= this.SALARIO_FAIXA_3) {
             this.impostoINSS = this.salario * this.aliquota;
         } else {
-            this.impostoINSS = this.DESCONTO_MAXIMO;
+            this.impostoINSS = this.descontoMaximo;
         }
     }
 
